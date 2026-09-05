@@ -391,6 +391,32 @@ describe("parseProviderModel — codex tier shortcuts", () => {
     });
   });
 
+  it("routes Astra aliases to gpt-6-astra at High by default", () => {
+    for (const alias of ["astra", "gpt-6-astra"]) {
+      expect(parseProviderModel(alias)).toEqual({
+        provider: "codex-oauth",
+        model: "gpt-6-astra",
+        reasoning: "high",
+      });
+    }
+  });
+
+  it("routes astra@xhigh to gpt-6-astra at Extra High", () => {
+    expect(parseProviderModel("astra@xhigh")).toEqual({
+      provider: "codex-oauth",
+      model: "gpt-6-astra",
+      reasoning: "xhigh",
+    });
+  });
+
+  it("routes astra@max to gpt-6-astra at Max", () => {
+    expect(parseProviderModel("astra@max")).toEqual({
+      provider: "codex-oauth",
+      model: "gpt-6-astra",
+      reasoning: "max",
+    });
+  });
+
   it("expands tier shortcuts to gpt-5.6-sol plus a baked-in reasoning level", () => {
     expect(parseProviderModel("fast")).toEqual({
       provider: "codex-oauth",

@@ -104,9 +104,10 @@ async function main() {
   }
   console.log("");
 
-  // GPT-5.6 family: Sol (frontier) / Terra (balanced) / Luna (fast). Switch with /model.
-  console.log("  Models: GPT-5.6 family  (372k context window)");
+  // GPT-6 Astra plus GPT-5.6 Sol/Terra/Luna. Switch with /model.
+  console.log("  Models: GPT-6 Astra + GPT-5.6 family");
   console.log("  ─────────────────────────────────────────────");
+  console.log("    /model astra     gpt-6-astra    Latest frontier (High effort; rollout access required)");
   console.log("    /model sol       gpt-5.6-sol    Frontier — hardest coding (default · High effort)");
   console.log("    /model terra     gpt-5.6-terra  Balanced — everyday high-volume work");
   console.log("    /model luna      gpt-5.6-luna   Fast & affordable — routine tasks");
@@ -122,7 +123,7 @@ async function main() {
   console.log("    /model think     sol @max       Alias for max");
   console.log("");
   console.log("  Verbatim @level works on every model:");
-  console.log("    /model terra@max   /model luna@high   /model sol@low   /model codex@xhigh");
+  console.log("    /model astra@max   /model astra@xhigh   /model terra@max   /model sol@low");
   console.log("");
 
   // Extra flags

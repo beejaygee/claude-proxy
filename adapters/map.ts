@@ -51,8 +51,10 @@ const MODEL_SHORTCUTS: Record<string, string> = {
   "gemini-25f": "gemini-oauth:gemini-2.5-flash",
   gp: "gemini-oauth:gemini-3.1-pro-preview",
   gf: "gemini-oauth:gemini-3-flash-preview",
-  // Codex shortcuts — GPT-5.6 family. Sol = frontier, Terra = balanced, Luna = fast/cheap.
+  // Codex shortcuts — GPT-6 Astra plus the GPT-5.6 family.
   // Every codex model takes an @level suffix: low | medium | high | xhigh | max.
+  astra: "codex-oauth:gpt-6-astra@high",
+  "gpt-6-astra": "codex-oauth:gpt-6-astra@high",
   codex: "codex-oauth:gpt-5.6-sol@high", // default = Sol frontier at High
   cx: "codex-oauth:gpt-5.6-sol@high",
   // GPT-5.6 Sol — latest frontier agentic coding model. Defaults to High

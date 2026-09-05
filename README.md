@@ -76,13 +76,14 @@ Each has a `-d` sibling (`claude-codex-d`, `claude-gemini-d`, `claude-cline-d`,
 
 ## Launchers
 
-### `claude-codex` — GPT-5.6 Codex via ChatGPT/OAuth
+### `claude-codex` — GPT-6 Astra and GPT-5.6 Codex via ChatGPT/OAuth
 
 Routes Claude Code to OpenAI's ChatGPT/Codex backend. The GPT-5.6 family shares a
-**372k-token context window**; **Sol** starts at **High** effort.
+**372k-token context window**; **Sol** remains the default at **High** effort.
 
 | Shortcut | Model | Role |
 | --- | --- | --- |
+| `astra` | `gpt-6-astra@high` | Latest frontier; availability depends on account rollout access |
 | `sol` · `codex` · `cx` | `gpt-5.6-sol` | Frontier — hardest coding & research (**default**) |
 | `terra` | `gpt-5.6-terra` | Balanced — everyday, high-volume work |
 | `luna` | `gpt-5.6-luna` | Fast & affordable — routine tasks |
@@ -192,13 +193,14 @@ explicit provider routes always work too.
 | `glm` | Z.AI Anthropic-compatible GLM |
 | `anthropic` | Anthropic passthrough |
 
-### Codex (GPT-5.6) shortcuts
+### Codex shortcuts
 
-Model shortcuts plus reasoning-effort shortcuts. Sol/Terra/Luna carry a 372k
-window; Sol and the other GPT-5.6 models default to **High**.
+Model shortcuts plus reasoning-effort shortcuts. Astra defaults to **High**;
+the existing GPT-5.6 defaults are unchanged.
 
 | Shortcut | Route |
 | --- | --- |
+| `astra` · `gpt-6-astra` | `gpt-6-astra@high` |
 | `sol` · `codex` · `cx` · `gpt56` · `gpt-5.6-sol` | `gpt-5.6-sol@high` |
 | `terra` · `gpt-5.6-terra` | `gpt-5.6-terra` |
 | `luna` · `gpt-5.6-luna` | `gpt-5.6-luna` |
@@ -210,7 +212,12 @@ window; Sol and the other GPT-5.6 models default to **High**.
 | `max` · `think` | `gpt-5.6-sol@max` |
 
 All route through `codex-oauth:`. Append `@level` to override effort on any
-model — `/model terra@max`, `/model luna@high`, `/model sol@low`.
+model — `/model astra@low`, `/model astra@medium`, `/model astra@high`,
+`/model astra@xhigh`, `/model astra@max`, `/model terra@max`, or `/model sol@low`.
+
+> Astra access is controlled by the Codex/OpenAI account rollout. If the model is
+> not enabled for the signed-in account, the proxy surfaces the upstream error; it
+> does not fall back to Sol.
 
 ### Gemini shortcuts
 
